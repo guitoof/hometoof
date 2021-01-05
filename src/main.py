@@ -9,11 +9,10 @@ if not is_connected():
     exit()
 
 
-sensor = TemperatureSensor(pin_id = config['sensors']['pin'])
+sensor = TemperatureSensor(pin_id = config['sensor']['pin'])
 server = Server(
     host = config['server']['host'],
     port = config['server']['port'],
-    route = config['server']['route']
 )
 
 while True:
@@ -23,6 +22,6 @@ while True:
         exit()
     print('Temperatures read:', temperatures)
     
-    server.post('temperature', temperatures[0])
+    server.post('sensor/' + config['sensor']['id'], { 'temperature': temperatures[0] })
 
     sleep(config['measure']['period'])

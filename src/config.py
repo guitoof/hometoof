@@ -8,6 +8,6 @@ config = {
         'port': 1880, # port used when using NodeRED
         'route': 'sensor' # if the route you wish to post to is /sensor
     },
-    'sensors': { 'pin': 32 }, # using the pin 32 on the ESP32 board
+    'sensor': { 'id': 'my_sensor_id', 'pin': 32 }, # using the pin 32 on the ESP32 board
     'measure': { 'period': 5 * 60 } #sample every 5min
 }
