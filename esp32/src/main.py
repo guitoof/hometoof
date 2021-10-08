@@ -9,7 +9,10 @@ if not is_connected():
     exit()
 
 
-sensor = TemperatureSensor(pin_id = config['sensor']['pin'])
+sensor = TemperatureSensor(
+    pin_id = config['sensor']['pin'],
+    offset = config['sensor']['offset']
+)
 server = Server(
     host = config['server']['host'],
     port = config['server']['port'],
